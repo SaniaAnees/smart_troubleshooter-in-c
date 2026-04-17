@@ -13,14 +13,21 @@ Performance Issues
 The goal was to explore event-driven programming, low-level input handling, and basic rule-based classification in a graphical environment.
 
 🧠 Key Features
+
 Real-time text input using SDL event system
 Keyword-based classification engine
 Interactive UI rendering with SDL2 and SDL_ttf
 Immediate feedback loop (input → detection → output)
+
+
 🛠️ Tech Stack
+
 Language: C
 Libraries: SDL2, SDL_ttf
+
+
 ⚙️ How It Works
+
 User types an issue into the UI
 Input is captured via SDL text events
 String is normalized (converted to lowercase)
@@ -29,7 +36,10 @@ Network (wifi, internet, connection, etc.)
 Hardware (mouse, keyboard, USB, etc.)
 Performance (lag, freeze, slow, etc.)
 The detected issue type is displayed on screen
+
+
 🧩 Project Structure
+
 smart_troubleshooter/
 │
 ├── main.c
@@ -40,11 +50,15 @@ smart_troubleshooter/
 ├── SDL2.dll
 ├── SDL2_ttf.dll
 └── README.md
+
+
 ▶️ Build & Run
 Compile:
 gcc -o main main.c -I./include -L./lib -lmingw32 -lSDL2main -lSDL2 -lSDL2_ttf
 Run:
 ./main.exe
+
+
 📸 Demo
 
 ![Input Screen](ASSETS/D1.png)
@@ -53,22 +67,30 @@ Run:
 
 ![Result](ASSETS/D3.png)
 
+
+
 🔍 Limitations
+
 Rule-based detection (not context-aware)
 Limited vocabulary
 No suggestion system yet
+
+
 🔮 Future Improvements
+
 Smarter detection logic (NLP-based classification)
 Add troubleshooting suggestions
 Better UI/UX (layout, colors, input box)
 Logging + history of issues
+
+
 🎯 Why This Project?
 
 Instead of building a console-based program, this project focuses on:
-
 Understanding low-level UI rendering
 Handling real-time input systems
 Designing a basic decision-making engine
-🧑‍💻 Author
 
+
+🧑‍💻 Author
 Sania
