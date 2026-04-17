@@ -47,15 +47,10 @@ Run:
 ./main.exe
 📸 Demo
 
-## 📸 Screenshots
-
-### Input Interface
 ![Input Screen](ASSETS/D1.png)
 
-### Typing Issue
 ![Typing](ASSETS/D2.png)
 
-### Output Result
 ![Result](ASSETS/D3.png)
 
 🔍 Limitations
