@@ -11,15 +11,17 @@ int len=0;
 is[0]='\0';
 char c[100];
 c[0]='\0';
+char result[100]="Enter your issue...";
 SDL_Init(SDL_INIT_VIDEO);
 TTF_Init();
 SDL_StartTextInput();
 SDL_Window*window=SDL_CreateWindow("TROUBLESHOOTER",SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED,640,320,0);
 SDL_Renderer*renderer=SDL_CreateRenderer(window,-1,SDL_RENDERER_SOFTWARE);
 //TTF_Font *font = TTF_OpenFont("consola.ttf", 24);
-TTF_Font *font = TTF_OpenFont("C:\\Users\\SANIA ANEES\\OneDrive\\Desktop\\smart_troubleshooter\\consola.ttf", 24);
+TTF_Font *font = TTF_OpenFont("Font/consola.ttf", 24);
 if (!font) {
     printf("Font error: %s\n", TTF_GetError());
+    return 1;
 }
 while(1){
     SDL_Event event;
@@ -87,34 +89,43 @@ while(1){
             }
 
             if(network_flag==1){
-                printf("DETECTED : NETWORK ISSUE.\n");
+            strcpy(result, "NETWORK ISSUE");
             }
             else if(hardware_flag==1){
-                printf("DETECTED : HARDWARE ISSUE.\n");
+                 strcpy(result, "HARDWARE ISSUE");
             }
             else if(performance_flag==1){
-                printf("DETECTED : PERFORMANCE ISSUE.\n");
+               strcpy(result,"PERFORMANCE ISSUE");
             }
             else{
-                printf("DETECTED : UNKNOWN ISSUE.\n");
+                strcpy(result,"UNKNOWN ISSUE");
             }
             len=0;
-            //is[0]='\0';    
+            is[0]='\0';    
             break;
                         }
                     }
                 }
- SDL_SetRenderDrawColor(renderer,20,20,65,255);
+        SDL_SetRenderDrawColor(renderer,20,20,65,255);
         SDL_RenderClear(renderer);
         SDL_Color color={255,255,255};   //white5
         SDL_Surface*surface=TTF_RenderText_Solid(font,is,color);
         if(surface!=NULL){
         //rendertext-Draw the text using the font,but no on screen but in memry (RAM)-bbuilds pixels
         SDL_Texture *texture = SDL_CreateTextureFromSurface(renderer, surface);   //A GPU-ready version of that image //string → surface (RAM image) → texture (GPU image) → screen--displays pixels
-        SDL_Rect rect = {50, 50, surface->w, surface->h};
+        SDL_Rect rect = {50, 80, surface->w, surface->h};
         SDL_RenderCopy(renderer, texture, NULL, &rect);
         SDL_FreeSurface(surface);
         SDL_DestroyTexture(texture);
+        }
+          SDL_Color color2={255,255,255};
+        SDL_Surface*surface2=TTF_RenderText_Solid(font,result,color2);
+        if(surface2!=NULL){
+            SDL_Texture*texture2=SDL_CreateTextureFromSurface(renderer,surface2);
+            SDL_Rect rect2={50,30,surface2->w,surface2->h};
+            SDL_RenderCopy(renderer,texture2,NULL,&rect2);
+            SDL_FreeSurface(surface2);
+            SDL_DestroyTexture(texture2);
         }
         SDL_RenderPresent(renderer);
 }
